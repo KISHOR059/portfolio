@@ -7,21 +7,21 @@ const projects = [
     tech: ["Laravel", "PHP", "HTML", "CSS", "Tailwind", "PostgreSQL"],
     period: "May 2025 – Jul 2025",
     desc: "Developed a secure web application with authentication, RBAC, and relational database design. Implemented admin modules for managing products, categories, users, vendors, and inventory logs efficiently.",
-    github: "https://github.com/yourusername/inventory-management",
+    github: "https://github.com/KISHOR059/Inventory-management-system.git",
   },
   {
     title: "EV Charging Station Finder & Booking App (Academic Project)",
     tech: ["Python", "HTML", "CSS", "JavaScript", "MySQL"],
     period: "Jan 2024 – May 2024",
-    desc: "Built an application that allows users to locate nearby EV charging stations with real-time availability and reserve charging slots in advance to reduce waiting time.",
+    desc: "Built an app to locate EV charging stations with real-time availability and reserve charging slots, reducing waiting times.",
     github: "https://github.com/KISHOR059/EV-Charging-Station-Finder-and-Booking-Application.git",
   },
   {
     title: "Intelligent Bus Ticketing & Reservation System",
     tech: ["Java", "HTML", "CSS", "JDBC", "MySQL"],
     period: "Academic Project",
-    desc: "Created a bus reservation system that streamlines ticket booking, seat management, and schedule handling using Java & JDBC with a structured backend.",
-    github: "https://github.com/yourusername/bus-ticketing-system",
+    desc: "Created a bus reservation system for ticket booking, seat management, and schedule handling using Java & JDBC.",
+    github: "https://github.com/KISHOR059/intelligent-bus-ticketing-reservation-system.git",
   }
 ];
 
@@ -39,13 +39,20 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-16 w-full bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden"
+      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden"
     >
+      {/* Futuristic neon shapes */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen"></div>
+      <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen"></div>
+
+      {/* Section Title */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center text-4xl sm:text-5xl font-extrabold mb-12 tracking-wide bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text"
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-center text-4xl sm:text-5xl font-extrabold mb-16 tracking-wide bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text"
       >
         Projects
       </motion.h2>
@@ -55,21 +62,21 @@ export default function Projects() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="flex flex-col gap-12 px-4 w-full max-w-6xl mx-auto"
+        className="flex flex-col gap-12 px-4 w-full max-w-6xl mx-auto relative z-10"
       >
         {projects.map((p, i) => (
           <motion.div
             key={i}
             variants={item}
-            className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-gray-700 pb-6"
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 p-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-300"
           >
             {/* Project Content */}
             <div className="flex-1">
-              <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 mb-1">
+              <h3 className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 mb-2">
                 {p.title}
               </h3>
-              <p className="text-cyan-400 font-medium mb-2">{p.period}</p>
-              <p className="text-gray-300 mb-2 leading-relaxed">{p.desc}</p>
+              <p className="text-cyan-400 font-medium mb-3">{p.period}</p>
+              <p className="text-gray-300 mb-3 leading-relaxed">{p.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {p.tech.map((t, idx) => (
                   <span
@@ -83,7 +90,7 @@ export default function Projects() {
             </div>
 
             {/* GitHub Button */}
-            <div className="mt-2 md:mt-0">
+            <div className="mt-4 md:mt-0">
               <a
                 href={p.github}
                 target="_blank"
@@ -100,4 +107,3 @@ export default function Projects() {
     </section>
   );
 }
-  

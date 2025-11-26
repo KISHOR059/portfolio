@@ -48,4 +48,8 @@ code {
   pointer-events: none;
 }
 
+.active-link span {
+  width: 100% !important;
+}
+
 

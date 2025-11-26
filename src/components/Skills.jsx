@@ -15,7 +15,7 @@ const AlpineIcon = () => (
     height="50"
     viewBox="0 0 24 24"
     fill="currentColor"
-    className="text-sky-500"
+    className="text-sky-500 glow"
   >
     <path d="M12 2L2 12L12 22L22 12L12 2ZM7.5 12L12 7.5L16.5 12L12 16.5L7.5 12Z"/>
   </svg>
@@ -53,7 +53,6 @@ const itemVariants = {
 };
 
 export default function Skills() {
-  // Split skills into rows (8 per row)
   const rowLength = 8;
   const rows = [];
   for (let i = 0; i < skills.length; i += rowLength) {
@@ -61,7 +60,12 @@ export default function Skills() {
   }
 
   return (
-    <section className="relative py-16 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden">
+      
+      {/* Animated background neon shapes */}
+      <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/20 blur-[160px] rounded-full animate-pulse-slower mix-blend-screen"></div>
+      <div className="absolute top-32 right-0 w-64 h-64 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen"></div>
 
       {/* Title */}
       <motion.h2
@@ -69,18 +73,18 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center text-4xl sm:text-5xl font-extrabold mb-8 tracking-wide bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text"
+        className="text-center text-4xl sm:text-5xl font-extrabold mb-12 tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text"
       >
         Skills
       </motion.h2>
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-8 relative z-10 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col gap-12 relative z-10 px-4">
         {rows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex flex-col gap-4">
-            
-            {/* Skill row */}
+          <div key={rowIndex} className="flex flex-col gap-6">
+
+            {/* Skill row with glass-like backdrop */}
             <motion.div 
-              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6"
+              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-xl"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -90,9 +94,7 @@ export default function Skills() {
                 <motion.div
                   key={i}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.15, rotate: 3, textShadow: "0 0 10px #fff", filter: "drop-shadow(0 0 10px #fff)" }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="flex flex-col items-center gap-1 cursor-pointer"
+                  className="flex flex-col items-center gap-2 cursor-pointer"
                 >
                   {skill.icon}
                   <span className="text-gray-300 text-xs sm:text-sm font-medium text-center">{skill.name}</span>
@@ -100,10 +102,10 @@ export default function Skills() {
               ))}
             </motion.div>
 
-            {/* Breathing neon line between rows */}
+            {/* Animated neon row divider */}
             {rowIndex < rows.length - 1 && (
               <motion.div
-                className="w-full h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20"
+                className="w-full h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-20 rounded-full animate-pulse-slow"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{

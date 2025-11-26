@@ -5,9 +5,15 @@ import { Link as ScrollLink } from "react-scroll";
 export default function Hero() {
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-20 
-      bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white relative overflow-hidden"
+      className="
+    min-h-[60vh] md:min-h-screen 
+    flex flex-col items-center justify-center 
+    px-6 md:px-20 py-16 md:py-20
+    bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 
+    text-white relative overflow-hidden
+  "
     >
+
       {/* CENTERED TEXT */}
       <div className="max-w-2xl z-10 flex flex-col items-center text-center">
 
@@ -15,10 +21,19 @@ export default function Hero() {
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-7xl font-extrabold leading-tight drop-shadow-xl"
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-xl text-center"
         >
-          Hi, I'm <span className="text-yellow-300">Kishor</span>
+          Hi, I'm <span className="text-yellow-400">Kishor</span>
         </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-4 text-lg sm:text-xl md:text-2xl text-white/90 text-center max-w-md sm:max-w-xl"
+        >
+        </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -37,9 +52,9 @@ export default function Hero() {
             duration={600}
             offset={-70}
             className="
-              cursor-pointer px-6 py-3 rounded-xl bg-white/10 backdrop-blur-lg
-              hover:bg-white/20 transition-all duration-300 shadow-lg
-            "
+                  cursor-pointer px-6 py-3 rounded-xl bg-white/10 backdrop-blur-lg
+                  hover:bg-white/20 transition-all duration-300 shadow-lg
+                "
           >
             See Projects
           </ScrollLink>
@@ -49,9 +64,9 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              px-6 py-3 rounded-xl bg-yellow-400 text-black font-semibold shadow-lg
-              hover:bg-yellow-300 transition-all duration-300
-            "
+                  px-6 py-3 rounded-xl bg-yellow-500 text-black font-semibold shadow-lg
+                  hover:bg-yellow-300 transition-all duration-300
+                "
           >
             View Resume
           </a>

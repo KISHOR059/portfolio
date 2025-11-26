@@ -7,11 +7,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
 
-  // Detect scroll
+  // Detect scroll shrink
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) setShrink(true);
-      else setShrink(false);
+      setShrink(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -45,8 +44,8 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, x: -25 }}
           animate={{ opacity: 1, x: 0 }}
-          className={`font-extrabold tracking-wide bg-clip-text text-white
-          ${shrink ? "text-xl" : "text-2xl"}`}
+          className={`font-extrabold tracking-wide text-white ${shrink ? "text-xl" : "text-2xl"
+            }`}
         >
           Kishor.dev
         </motion.div>
@@ -60,13 +59,14 @@ export default function Navbar() {
               smooth
               duration={500}
               offset={-60}
+              spy={true}
+              activeClass="active-link"
               className="relative cursor-pointer text-white dark:text-gray-200 transition group"
             >
               {l.label}
 
-              {/* Hover underline */}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-500 
-                transition-all duration-300 group-hover:w-full"></span>
+              {/* Underline */}
+              <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
             </ScrollLink>
           ))}
 
@@ -74,17 +74,18 @@ export default function Navbar() {
           <a
             href={`${process.env.PUBLIC_URL}/assets/Kishor_Resume.pdf`}
             download="Kishor_Resume.pdf"
-            className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md 
-  hover:shadow-xl hover:scale-105 transition"
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition"
           >
             Resume
           </a>
-
         </div>
 
         {/* Mobile */}
         <div className="md:hidden flex items-center gap-3">
-          <button onClick={() => setOpen(!open)} className="p-2 rounded-md border border-white/30">
+          <button
+            onClick={() => setOpen(!open)}
+            className="p-2 rounded-md border border-white/30"
+          >
             <svg width="28" height="28" viewBox="0 0 24 24" className="stroke-current">
               <path
                 d={open ? "M6 18L18 6M6 6l12 12" : "M3 6h18M3 12h18M3 18h18"}
@@ -114,24 +115,25 @@ export default function Navbar() {
                   duration={500}
                   offset={-60}
                   onClick={() => setOpen(false)}
-                  className="py-1"
+                  spy={true}
+                  activeClass="active-link"
+                  className="relative py-1 text-white dark:text-gray-200"
                 >
                   {l.label}
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
                 </ScrollLink>
               ))}
-
-              <a
-                href={`${process.env.PUBLIC_URL}/assets/Kishor_Resume.pdf`}
-                download="Kishor_Resume.pdf"
-                className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg text-center"
-              >
-                Download Resume
-              </a>
-
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Tailwind Active Link Styling */}
+      <style jsx>{`
+        .active-link span {
+          width: 100%;
+        }
+      `}</style>
     </motion.nav>
   );
 }
