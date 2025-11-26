@@ -72,8 +72,8 @@ export default function Navbar() {
 
           {/* Resume Button */}
           <a
-            href="/Kishor_Resume.pdf"
-            download
+            href={`${process.env.PUBLIC_URL}/assets/Kishor_Resume.pdf`}
+            download="Kishor_Resume.pdf"
             className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md 
             hover:shadow-xl hover:scale-105 transition"
           >
@@ -120,8 +120,9 @@ export default function Navbar() {
               ))}
 
               <a
-                href="/resume.pdf"
-                download
+                href={`${process.env.PUBLIC_URL}/assets/resume.pdf`}
+                download="Kishor-Resume.pdf"
+
                 className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg text-center"
               >
                 Download Resume
