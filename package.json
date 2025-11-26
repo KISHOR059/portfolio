@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://KISHOR059.github.io/portfolio",
+  "homepage": "https://kishor059.github.io/portfolio/",
 
   "dependencies": {
     "@react-three/drei": "^10.7.7",
