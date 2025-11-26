@@ -45,7 +45,7 @@ export default function Hero() {
           </ScrollLink>
 
           <a
-            href="https://github.com/KISHOR059"
+            href={`${process.env.PUBLIC_URL}/assets/Kishor_Resume.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -53,7 +53,7 @@ export default function Hero() {
               hover:bg-yellow-300 transition-all duration-300
             "
           >
-            My GitHub
+            View Resume
           </a>
         </div>
       </div>
