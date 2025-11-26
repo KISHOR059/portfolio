@@ -9,8 +9,8 @@ export default function Hero() {
       className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-20 
         bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white relative overflow-hidden"
     >
-      {/* LEFT SIDE */}
-      <div className="max-w-xl z-10 flex flex-col items-center text-center mx-auto">
+      {/* LEFT SIDE: TEXT */}
+      <div className="max-w-xl z-10 flex flex-col items-start text-left mx-auto md:mx-0">
         <motion.h1
           initial={{ x: -40, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -29,29 +29,42 @@ export default function Hero() {
           <TypewriterText />
         </motion.div>
 
-        {/* BUTTONS */}
-        <div className="mt-10 flex gap-4 justify-center">
+        {/* BUTTONS / STATIC CONTENT */}
+        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-start items-start">
           <ScrollLink
             to="projects"
             smooth
             duration={600}
             offset={-70}
             className="cursor-pointer px-6 py-3 rounded-xl bg-white/10 backdrop-blur-lg 
-        hover:bg-white/20 transition-all duration-300 shadow-lg"
+              hover:bg-white/20 transition-all duration-300 shadow-lg"
           >
             See Projects
           </ScrollLink>
 
           <a
-            href="/Kishor_Resume.pdf"
-            download
+            href="https://github.com/KISHOR059"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3 rounded-xl bg-yellow-400 text-black font-semibold shadow-lg
-        hover:bg-yellow-300 transition-all duration-300"
+              hover:bg-yellow-300 transition-all duration-300"
           >
-            Download Resume
+            My GitHub
           </a>
         </div>
       </div>
+
+      {/* RIGHT SIDE: PROFILE IMAGE */}
+      <div className="relative w-52 h-52 md:w-72 md:h-72 mt-10 md:mt-0 flex-shrink-0 mr-32 z-30 rounded-full border-4 border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.5)] overflow-hidden">
+        {/* PROFILE IMAGE */}
+        <img
+          src={`${process.env.PUBLIC_URL}/assets/profile.png`}
+          alt="Kishor"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+
+
 
 
       {/* Neon animated lines around 3D scene with glow */}
@@ -67,7 +80,6 @@ export default function Hero() {
         transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
         style={{ boxShadow: "0 0 20px rgba(6,182,212,0.7), 0 0 40px rgba(16,185,129,0.5)" }}
       />
-
 
       {/* Decorative Background Elements */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-3xl rounded-full"></div>
