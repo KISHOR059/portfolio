@@ -15,3 +15,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* HERO GRADIENT — BRIGHTER VERSION */
+.hero-gradient {
+  background:
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(255, 140, 255, 0.6) 0%,
+      rgba(165, 90, 255, 0.45) 55%,
+      rgba(50, 30, 100, 0.35) 80%,
+      rgba(20, 15, 50, 0.25) 100%
+    ),
+    linear-gradient(
+      135deg,
+      #1a214f 0%,
+      #292a63 33%,
+      #403084 66%,
+      #1c275c 100%
+    );
+  position: relative;
+}
+
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.03)
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+
