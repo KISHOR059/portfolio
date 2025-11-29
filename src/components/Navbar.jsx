@@ -8,6 +8,7 @@ export default function Navbar() {
   const [shrink, setShrink] = useState(false);
   const animationFrameRef = useRef(null);
 
+<<<<<<< HEAD
   // Optimized scroll listener for 120fps displays
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +33,15 @@ export default function Navbar() {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
+=======
+  // Detect scroll shrink
+  useEffect(() => {
+    const handleScroll = () => {
+      setShrink(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+>>>>>>> parent of f9726a7 (Smooth Scroll)
   }, []);
 
   const links = [
@@ -54,7 +64,7 @@ export default function Navbar() {
           : "rgba(255,255,255,0.15)",
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed left-1/2 -translate-x-1/2 top-0 z-50 backdrop-blur-xl shadow-lg border border-white/20 dark:border-white/10 will-change-gpu"
+      className="fixed left-1/2 -translate-x-1/2 top-0 z-50 backdrop-blur-xl shadow-lg border border-white/20 dark:border-white/10"
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 

@@ -39,20 +39,35 @@ export default function Projects() {
   return (
     <section
       id="projects"
+<<<<<<< HEAD
       className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden will-change-gpu hardware-accelerated"
     >
       {/* Futuristic neon shapes */}
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu hardware-accelerated"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen hidden lg:block will-change-gpu hardware-accelerated"></div>
       <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu hardware-accelerated"></div>
+=======
+      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden"
+    >
+      {/* Futuristic neon shapes */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen"></div>
+      <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen"></div>
+>>>>>>> parent of f9726a7 (Smooth Scroll)
 
       {/* Section Title */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
+<<<<<<< HEAD
         transition={{ duration: 0.4, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
         className="text-center text-4xl sm:text-5xl font-extrabold mb-16 tracking-wide bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text will-change-gpu hardware-accelerated"
+=======
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="text-center text-4xl sm:text-5xl font-extrabold mb-16 tracking-wide bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text"
+>>>>>>> parent of f9726a7 (Smooth Scroll)
       >
         Projects
       </motion.h2>
@@ -64,17 +79,27 @@ export default function Projects() {
         }}
         initial="hidden"
         whileInView="visible"
+<<<<<<< HEAD
         viewport={{ once: true, amount: 0.1 }}
         className="flex flex-col gap-12 px-4 w-full max-w-6xl mx-auto relative z-10 will-change-gpu hardware-accelerated"
+=======
+        viewport={{ once: true }}
+        className="flex flex-col gap-12 px-4 w-full max-w-6xl mx-auto relative z-10"
+>>>>>>> parent of f9726a7 (Smooth Scroll)
       >
         {projects.map((p, i) => (
           <motion.div
             key={i}
+<<<<<<< HEAD
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
             }}
             className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 p-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-300 will-change-gpu hardware-accelerated"
+=======
+            variants={item}
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 p-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-300"
+>>>>>>> parent of f9726a7 (Smooth Scroll)
           >
             {/* Project Content */}
             <div className="flex-1">

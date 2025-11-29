@@ -6,22 +6,9 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
-    extend: {
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-slower': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      },
-      keyframes: {
-        pulse: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.7' },
-        },
-      },
-      transitionProperty: {
-        'gpu': 'transform, opacity',
-      },
-    },
+    extend: {},
   },
+<<<<<<< HEAD
   plugins: [
     function({ addUtilities, e, theme }) {
       // Add GPU acceleration utilities
@@ -73,4 +60,7 @@ module.exports = {
       addUtilities(gpuUtilities);
     },
   ],
+=======
+  plugins: [],
+>>>>>>> parent of f9726a7 (Smooth Scroll)
 }
