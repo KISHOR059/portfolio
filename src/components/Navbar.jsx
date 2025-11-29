@@ -1,39 +1,12 @@
 // Navbar.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
-  const animationFrameRef = useRef(null);
 
-<<<<<<< HEAD
-  // Optimized scroll listener for 120fps displays
-  useEffect(() => {
-    const handleScroll = () => {
-      // Cancel previous frame to prevent multiple calls
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-
-      // Schedule state update on next animation frame
-      animationFrameRef.current = requestAnimationFrame(() => {
-        const isScrolled = window.scrollY > 50;
-        setShrink(isScrolled);
-      });
-    };
-
-    // Use passive listener for better mobile scroll performance
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-    };
-=======
   // Detect scroll shrink
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +14,6 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
->>>>>>> parent of f9726a7 (Smooth Scroll)
   }, []);
 
   const links = [

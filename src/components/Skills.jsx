@@ -60,35 +60,20 @@ export default function Skills() {
   }
 
   return (
-<<<<<<< HEAD
-    <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden will-change-gpu hardware-accelerated">
-      
-      {/* Animated background neon shapes */}
-      <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu hardware-accelerated"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/20 blur-[160px] rounded-full animate-pulse-slower mix-blend-screen hidden lg:block will-change-gpu hardware-accelerated"></div>
-      <div className="absolute top-32 right-0 w-64 h-64 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu hardware-accelerated"></div>
-=======
     <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden">
       
       {/* Animated background neon shapes */}
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/20 blur-[160px] rounded-full animate-pulse-slower mix-blend-screen"></div>
       <div className="absolute top-32 right-0 w-64 h-64 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen"></div>
->>>>>>> parent of f9726a7 (Smooth Scroll)
 
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-<<<<<<< HEAD
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="text-center text-4xl sm:text-5xl font-extrabold mb-12 tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text will-change-gpu hardware-accelerated"
-=======
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         className="text-center text-4xl sm:text-5xl font-extrabold mb-12 tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text"
->>>>>>> parent of f9726a7 (Smooth Scroll)
       >
         Skills
       </motion.h2>
@@ -99,22 +84,11 @@ export default function Skills() {
 
             {/* Skill row with glass-like backdrop */}
             <motion.div 
-<<<<<<< HEAD
-              className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-xl will-change-gpu hardware-accelerated"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
-              }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-=======
               className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-xl"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
->>>>>>> parent of f9726a7 (Smooth Scroll)
             >
               {row.map((skill, i) => (
                 <motion.div

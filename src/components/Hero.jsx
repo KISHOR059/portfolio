@@ -10,18 +10,6 @@ export default function Hero() {
         flex flex-col items-center justify-center 
         px-6 md:px-20 py-16 md:py-20
         bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 
-<<<<<<< HEAD
-        text-white relative overflow-hidden will-change-gpu hardware-accelerated
-      "
-    >
-      {/* CENTERED TEXT */}
-      <div className="max-w-2xl z-10 flex flex-col items-center text-center will-change-gpu hardware-accelerated">
-        <motion.h1
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-xl text-center will-change-gpu hardware-accelerated"
-=======
         text-white relative overflow-hidden
       "
     >
@@ -32,7 +20,6 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-xl text-center"
->>>>>>> parent of f9726a7 (Smooth Scroll)
         >
           Hi, I'm <span className="text-yellow-400">Kishor</span>
         </motion.h1>
@@ -98,13 +85,8 @@ export default function Hero() {
       />
 
       {/* Blur Background Circles */}
-<<<<<<< HEAD
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-3xl rounded-full hidden sm:block will-change-gpu hardware-accelerated"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 blur-3xl rounded-full hidden sm:block will-change-gpu hardware-accelerated"></div>
-=======
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 blur-3xl rounded-full"></div>
->>>>>>> parent of f9726a7 (Smooth Scroll)
     </section>
   );
 }

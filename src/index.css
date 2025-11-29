@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-html {
-  /* Smooth scrolling with high refresh rate optimization */
-  scroll-behavior: smooth;
-  
-  /* Reduce layout thrashing and improve paint performance */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-  /* Enable hardware acceleration for the entire viewport */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-=======
->>>>>>> parent of f9726a7 (Smooth Scroll)
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -25,70 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-<<<<<<< HEAD
-  overflow-x: hidden;
-  
-  /* Critical: Prevent jank on 120fps displays */
-  will-change: scroll-position;
-  contain: layout style paint;
-}
-
-/* High performance GPU acceleration for all major containers */
-main, section {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  contain: layout style paint;
-  will-change: contents;
-}
-
-/* Optimize animations for high refresh rate mobile displays */
-@media (max-width: 768px) {
-  /* Enable contain property for better reflow performance */
-  * {
-    contain: layout style;
-  }
-  
-  /* Reduce blur effects on mobile while keeping visual quality */
-  [class*="blur"] {
-    filter: blur(30px) !important;
-  }
-
-  /* Critical: Optimize motion for 120fps displays */
-  *,
-  *::before,
-  *::after {
-    /* Use hardware acceleration for all transforms */
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-  }
-
-  /* Smooth animations with optimal frame timing */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-=======
->>>>>>> parent of f9726a7 (Smooth Scroll)
-}
-
-/* High refresh rate display optimization (120fps+) */
-@media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
-  body {
-    /* Prevent layout shift during scroll */
-    scrollbar-gutter: stable;
-  }
-}
-
-/* Optimize scrollable containers */
-*[style*="overflow"] {
-  contain: strict;
-  will-change: scroll-position;
 }
 
 code {
