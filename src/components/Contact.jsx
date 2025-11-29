@@ -2,6 +2,37 @@ import { motion } from "framer-motion";
 import { Mail, Phone, Github, Linkedin } from "lucide-react";
 
 export default function Contact() {
+  const contacts = [
+    {
+      name: "LinkedIn",
+      icon: <Linkedin size={32} className="text-blue-400" />,
+      href: "https://www.linkedin.com/in/kishor-m-567b95297",
+      gradient: "border-indigo-500/40 hover:shadow-indigo-500/50",
+      delay: 0,
+    },
+    {
+      name: "GitHub",
+      icon: <Github size={32} className="text-white" />,
+      href: "https://github.com/KISHOR059",
+      gradient: "border-purple-500/40 hover:shadow-purple-500/50",
+      delay: 0.1,
+    },
+    {
+      name: "Gmail",
+      icon: <Mail size={32} className="text-red-400" />,
+      href: "mailto:kishoffl@gmail.com",
+      gradient: "border-pink-500/40 hover:shadow-pink-500/50",
+      delay: 0.2,
+    },
+    {
+      name: "Mobile",
+      icon: <Phone size={32} className="text-green-400" />,
+      desc: "+918110099663",
+      gradient: "border-cyan-500/40 hover:shadow-cyan-500/50",
+      delay: 0.3,
+    },
+  ];
+
   return (
     <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden">
       
@@ -23,72 +54,42 @@ export default function Contact() {
       </motion.h2>
 
       <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-        
-        {/* LinkedIn */}
-        <motion.a
-          href="https://www.linkedin.com/in/kishor-m-567b95297"
-          target="_blank"
-          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-indigo-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Linkedin size={32} className="text-blue-400" />
-          <div>
-            <h3 className="text-lg font-semibold">LinkedIn</h3>
-            <p className="text-gray-300 text-sm">Visit Profile</p>
-          </div>
-        </motion.a>
 
-        {/* GitHub */}
-        <motion.a
-          href="https://github.com/KISHOR059"
-          target="_blank"
-          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-purple-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-purple-500/50 transition-all duration-300 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <Github size={32} className="text-white" />
-          <div>
-            <h3 className="text-lg font-semibold">GitHub</h3>
-            <p className="text-gray-300 text-sm">View Profile</p>
-          </div>
-        </motion.a>
-
-        {/* Gmail */}
-        <a href="mailto:kishoffl@gmail.com" className="block">
-          <motion.div
-            className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-pink-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Mail size={32} className="text-red-400" />
-            <div>
-              <h3 className="text-lg font-semibold">Gmail</h3>
-              <p className="text-gray-300 text-sm">kishoffl@gmail.com</p>
-            </div>
-          </motion.div>
-        </a>
-
-        {/* Mobile */}
-        <motion.div
-          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-cyan-500/40 rounded-2xl cursor-default shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <Phone size={32} className="text-green-400" />
-          <div>
-            <h3 className="text-lg font-semibold">Mobile</h3>
-            <p className="text-gray-300 text-sm">+91 8110099663</p>
-          </div>
-        </motion.div>
+        {contacts.map((c, i) =>
+          c.name === "Mobile" ? (
+            <motion.a
+              key={i}
+              href={`tel:${c.desc}`}
+              className={`flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border rounded-2xl cursor-pointer shadow-lg ${c.gradient} text-center relative overflow-hidden`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, rotateX: 3, rotateY: 3 }}
+              transition={{ duration: 0.5, delay: c.delay }}
+            >
+              <span className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 hover:opacity-30 transition-all duration-500"></span>
+              {c.icon}
+              <h3 className="text-lg font-semibold z-10">{c.name}</h3>
+              <p className="text-gray-300 text-sm z-10">{c.desc}</p>
+            </motion.a>
+          ) : (
+            <motion.a
+              key={i}
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border rounded-2xl cursor-pointer shadow-lg ${c.gradient} text-center relative overflow-hidden`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05, rotateX: 3, rotateY: 3 }}
+              transition={{ duration: 0.5, delay: c.delay }}
+            >
+              <span className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/10 to-transparent opacity-0 hover:opacity-30 transition-all duration-500"></span>
+              {c.icon}
+              <h3 className="text-lg font-semibold z-10">{c.name}</h3>
+              <p className="text-gray-300 text-sm z-10">{c.name === "Gmail" ? "kishoffl@gmail.com" : "Visit Profile"}</p>
+            </motion.a>
+          )
+        )}
 
       </div>
     </section>
