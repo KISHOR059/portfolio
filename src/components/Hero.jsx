@@ -10,16 +10,16 @@ export default function Hero() {
         flex flex-col items-center justify-center 
         px-6 md:px-20 py-16 md:py-20
         bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 
-        text-white relative overflow-hidden
+        text-white relative overflow-hidden will-change-gpu
       "
     >
       {/* CENTERED TEXT */}
-      <div className="max-w-2xl z-10 flex flex-col items-center text-center">
+      <div className="max-w-2xl z-10 flex flex-col items-center text-center will-change-gpu">
         <motion.h1
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-xl text-center"
+          transition={{ duration: 0.6 }}
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-xl text-center will-change-gpu"
         >
           Hi, I'm <span className="text-yellow-400">Kishor</span>
         </motion.h1>
@@ -85,8 +85,8 @@ export default function Hero() {
       />
 
       {/* Blur Background Circles */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 blur-3xl rounded-full"></div>
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-white/10 blur-3xl rounded-full hidden sm:block will-change-gpu"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 blur-3xl rounded-full hidden sm:block will-change-gpu"></div>
     </section>
   );
 }

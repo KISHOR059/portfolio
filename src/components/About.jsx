@@ -29,22 +29,22 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden"
+      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden will-change-gpu"
     >
       {/* Futuristic blurred neon shapes */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen"></div>
-      <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-purple-500/10 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen"></div>
-      <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/20 blur-2xl rounded-full animate-pulse-slow mix-blend-screen"></div>
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu"></div>
+      <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-purple-500/10 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen hidden lg:block will-change-gpu"></div>
+      <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/20 blur-2xl rounded-full animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="text-center text-4xl sm:text-5xl font-extrabold mb-12 tracking-wider 
-            bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+            bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-text text-transparent will-change-gpu"
         >
           About Me
         </motion.h2>
@@ -53,8 +53,9 @@ export default function About() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="w-full text-center text-gray-300 leading-relaxed mb-16 text-lg sm:text-xl px-4 sm:px-6"
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="w-full text-center text-gray-300 leading-relaxed mb-16 text-lg sm:text-xl px-4 sm:px-6 will-change-gpu"
         >
           I’m a passionate <span className="font-semibold text-indigo-400">Full-Stack Developer (React, Java, Laravel)</span>
           and engineer who loves crafting <span className="text-purple-400 font-semibold">scalable APIs</span>,
@@ -67,12 +68,12 @@ export default function About() {
           {cards.map((card, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.7 + i * 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
               className="p-6 sm:p-8 bg-gradient-to-tr from-white/5 to-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl
-                hover:scale-[1.05] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-400 group"
+                hover:scale-[1.05] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-300 group will-change-gpu"
             >
               <h3 className={`text-2xl font-bold mb-3 ${colorMap[card.color].text} group-hover:${colorMap[card.color].hoverText}`}>
                 {card.title}

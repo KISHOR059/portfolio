@@ -3,7 +3,7 @@ import { Mail, Phone, Github, Linkedin } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden will-change-gpu">
       
       {/* Futuristic neon background lines */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
@@ -16,23 +16,25 @@ export default function Contact() {
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="text-center text-5xl font-extrabold mb-28 tracking-wide bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text"
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="text-center text-5xl font-extrabold mb-28 tracking-wide bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text will-change-gpu"
       >
         Contact Me
       </motion.h2>
 
-      <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+      <div className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10 will-change-gpu">
         
         {/* LinkedIn */}
         <motion.a
           href="https://www.linkedin.com/in/kishor-m-567b95297"
           target="_blank"
-          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-indigo-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 text-center"
+          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-indigo-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 text-center will-change-gpu"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <Linkedin size={32} className="text-blue-400" />
           <div>
@@ -45,11 +47,12 @@ export default function Contact() {
         <motion.a
           href="https://github.com/KISHOR059"
           target="_blank"
-          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-purple-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-purple-500/50 transition-all duration-300 text-center"
+          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-purple-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-purple-500/50 transition-all duration-300 text-center will-change-gpu"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <Github size={32} className="text-white" />
           <div>
@@ -61,11 +64,12 @@ export default function Contact() {
         {/* Gmail */}
         <a href="mailto:kishoffl@gmail.com" className="block">
           <motion.div
-            className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-pink-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-center"
+            className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-pink-500/40 rounded-2xl cursor-pointer shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-center will-change-gpu"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <Mail size={32} className="text-red-400" />
             <div>
@@ -77,11 +81,12 @@ export default function Contact() {
 
         {/* Mobile */}
         <motion.div
-          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-cyan-500/40 rounded-2xl cursor-default shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-center"
+          className="flex flex-col items-center justify-center gap-4 p-5 bg-gray-900/50 backdrop-blur-xl border border-cyan-500/40 rounded-2xl cursor-default shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-center will-change-gpu"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <Phone size={32} className="text-green-400" />
           <div>

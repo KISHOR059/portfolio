@@ -7,12 +7,19 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
 
-  // Detect scroll shrink
+  // Detect scroll shrink with passive listener for better performance
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShrink(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setShrink(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,7 +43,7 @@ export default function Navbar() {
           : "rgba(255,255,255,0.15)",
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed left-1/2 -translate-x-1/2 top-0 z-50 backdrop-blur-xl shadow-lg border border-white/20 dark:border-white/10"
+      className="fixed left-1/2 -translate-x-1/2 top-0 z-50 backdrop-blur-xl shadow-lg border border-white/20 dark:border-white/10 will-change-gpu"
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
 

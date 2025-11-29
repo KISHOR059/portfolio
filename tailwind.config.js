@@ -6,7 +6,36 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slower': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.7' },
+        },
+      },
+      transitionProperty: {
+        'gpu': 'transform, opacity',
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities, e, theme }) {
+      // Add GPU acceleration utilities
+      const gpuUtilities = {
+        '.will-change-gpu': {
+          'will-change': 'transform, opacity',
+        },
+        '.gpu-accelerated': {
+          'transform': 'translateZ(0)',
+          'backface-visibility': 'hidden',
+          'perspective': '1000px',
+        },
+      };
+      addUtilities(gpuUtilities);
+    },
+  ],
 }

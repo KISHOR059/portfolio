@@ -39,20 +39,20 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden"
+      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white overflow-hidden will-change-gpu"
     >
       {/* Futuristic neon shapes */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen"></div>
-      <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen"></div>
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-500/20 blur-3xl rounded-full animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 blur-[140px] rounded-full animate-pulse-slower mix-blend-screen hidden lg:block will-change-gpu"></div>
+      <div className="absolute top-20 right-0 w-60 h-60 bg-pink-500/30 blur-2xl animate-pulse-slow mix-blend-screen hidden sm:block will-change-gpu"></div>
 
       {/* Section Title */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-center text-4xl sm:text-5xl font-extrabold mb-16 tracking-wide bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text"
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="text-center text-4xl sm:text-5xl font-extrabold mb-16 tracking-wide bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-transparent bg-clip-text will-change-gpu"
       >
         Projects
       </motion.h2>
@@ -61,14 +61,14 @@ export default function Projects() {
         variants={container}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        className="flex flex-col gap-12 px-4 w-full max-w-6xl mx-auto relative z-10"
+        viewport={{ once: true, amount: 0.15 }}
+        className="flex flex-col gap-12 px-4 w-full max-w-6xl mx-auto relative z-10 will-change-gpu"
       >
         {projects.map((p, i) => (
           <motion.div
             key={i}
             variants={item}
-            className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 p-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-300"
+            className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 p-6 bg-white/5 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] transition-all duration-300 will-change-gpu"
           >
             {/* Project Content */}
             <div className="flex-1">
