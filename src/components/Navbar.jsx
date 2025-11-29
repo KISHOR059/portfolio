@@ -1,26 +1,37 @@
 // Navbar.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [shrink, setShrink] = useState(false);
+  const animationFrameRef = useRef(null);
 
-  // Detect scroll shrink with passive listener for better performance
+  // Optimized scroll listener for 120fps displays
   useEffect(() => {
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setShrink(window.scrollY > 50);
-          ticking = false;
-        });
-        ticking = true;
+      // Cancel previous frame to prevent multiple calls
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+
+      // Schedule state update on next animation frame
+      animationFrameRef.current = requestAnimationFrame(() => {
+        const isScrolled = window.scrollY > 50;
+        setShrink(isScrolled);
+      });
+    };
+
+    // Use passive listener for better mobile scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
       }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const links = [

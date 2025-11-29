@@ -3,7 +3,16 @@
 @tailwind utilities;
 
 html {
+  /* Smooth scrolling with high refresh rate optimization */
   scroll-behavior: smooth;
+  
+  /* Reduce layout thrashing and improve paint performance */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Enable hardware acceleration for the entire viewport */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 body {
@@ -14,23 +23,43 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  
+  /* Critical: Prevent jank on 120fps displays */
+  will-change: scroll-position;
+  contain: layout style paint;
 }
 
-/* GPU acceleration for smooth scrolling */
-main, section, div {
+/* High performance GPU acceleration for all major containers */
+main, section {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+  contain: layout style paint;
+  will-change: contents;
 }
 
-/* Optimize animations for reduced motion on mobile */
+/* Optimize animations for high refresh rate mobile displays */
 @media (max-width: 768px) {
-  /* Reduce blur effects on mobile */
+  /* Enable contain property for better reflow performance */
+  * {
+    contain: layout style;
+  }
+  
+  /* Reduce blur effects on mobile while keeping visual quality */
   [class*="blur"] {
     filter: blur(30px) !important;
   }
 
-  /* Reduce animation complexity on mobile */
+  /* Critical: Optimize motion for 120fps displays */
+  *,
+  *::before,
+  *::after {
+    /* Use hardware acceleration for all transforms */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Smooth animations with optimal frame timing */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -40,6 +69,20 @@ main, section, div {
       transition-duration: 0.01ms !important;
     }
   }
+}
+
+/* High refresh rate display optimization (120fps+) */
+@media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+  body {
+    /* Prevent layout shift during scroll */
+    scrollbar-gutter: stable;
+  }
+}
+
+/* Optimize scrollable containers */
+*[style*="overflow"] {
+  contain: strict;
+  will-change: scroll-position;
 }
 
 code {
