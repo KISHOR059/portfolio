@@ -44,8 +44,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, x: -25 }}
           animate={{ opacity: 1, x: 0 }}
-          className={`font-extrabold tracking-wide text-white ${shrink ? "text-xl" : "text-2xl"
-            }`}
+          className={`font-extrabold tracking-wide text-white ${shrink ? "text-xl" : "text-2xl"}`}
         >
           Kishor.dev
         </motion.div>
@@ -64,24 +63,36 @@ export default function Navbar() {
               className="relative cursor-pointer text-white dark:text-gray-200 transition group"
             >
               {l.label}
-
               {/* Underline */}
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
             </ScrollLink>
           ))}
 
-          {/* Resume Button */}
-          <a
-            href={`${process.env.PUBLIC_URL}/assets/Kishor_Resume.pdf`}
-            download="Kishor_Resume.pdf"
-            className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md hover:shadow-xl hover:scale-105 transition"
+          {/* Right-end Neon Logo </> */}
+          <motion.div
+            className="ml-6 font-extrabold text-white text-2xl tracking-wide"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1, textShadow: "0 0 10px #fff, 0 0 20px #8b5cf6, 0 0 30px #6366f1" }}
+            transition={{ duration: 0.3 }}
           >
-            Resume
-          </a>
+            &lt;/&gt;
+          </motion.div>
         </div>
 
         {/* Mobile */}
         <div className="md:hidden flex items-center gap-3">
+          {/* Neon Logo </> */}
+          <motion.div
+            className="font-extrabold text-white text-xl tracking-wide"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1, textShadow: "0 0 10px #fff, 0 0 15px #8b5cf6" }}
+            transition={{ duration: 0.3 }}
+          >
+            &lt;/&gt;
+          </motion.div>
+
           <button
             onClick={() => setOpen(!open)}
             className="p-2 rounded-md border border-white/30"
